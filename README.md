@@ -1,7 +1,8 @@
-angular-credit-cards [![Build Status](https://travis-ci.org/bendrucker/angular-credit-cards.svg?branch=master)](https://travis-ci.org/bendrucker/angular-credit-cards)
-====================
+# angular-credit-cards [![Build Status](https://travis-ci.org/bendrucker/angular-credit-cards.svg?branch=master)](https://travis-ci.org/bendrucker/angular-credit-cards)
 
 A set of Angular directives for constructing credit card payment forms. Uses [creditcards](https://www.npmjs.org/package/creditcards) to parse and validate inputs. Pairs well with [angular-stripe](https://www.npmjs.org/package/angular-stripe) or any other payments backend. [Try it!](http://embed.plnkr.co/uE47aZ/preview)
+
+----------------------------------------------------------------------
 
 ## Installation
 ```bash
@@ -9,6 +10,8 @@ A set of Angular directives for constructing credit card payment forms. Uses [cr
 $ npm install angular-credit-cards
 # or bower
 $ bower install angular-credit-cards
+
+----------------------------------------------------------------------
 ```
 
 ## Setup
@@ -28,13 +31,15 @@ angular.module('myApp', [
 
 If you'd like to use the [creditcards](https://www.npmjs.org/package/creditcards) API directly, you can inject the service as `creditcards`.
 
+----------------------------------------------------------------------
+
 ## API
 
 With the exception of `ccExp`, all directives require `ngModel` on their elements. While designed to be used together, all directives except `ccExp` can be used completely independently.
 
 All directives apply a [numeric input pattern](http://bradfrostweb.com/blog/mobile/better-numerical-inputs-for-mobile-forms/) so that mobile browsers use a modified version of the enlarged telephone keypad. You should use `type="text"` for all `input` elements.
 
-<hr>
+----------------------------------------------------------------------
 
 ### Card Number (`cc-number`)
 
@@ -82,7 +87,7 @@ Enforcing a specific card type chosen with a `<select>`:
 </form>
 ```
 
-<hr>
+----------------------------------------------------------------------
 
 ### CVC (`cc-cvc`)
 
@@ -96,7 +101,7 @@ Enforcing a specific card type chosen with a `<select>`:
 
 You can optionally specify a scope property that stores the card type as `cc-type`. For American Express cards, a 4 digit CVC is expected. For all other card types, 3 digits are expected.
 
-<hr>
+----------------------------------------------------------------------
 
 ### Expiration (`cc-exp`, `cc-exp-month`, `cc-exp-year`)
 
@@ -128,7 +133,7 @@ Validates that the month/year pair has not passed
 
 `cc-exp` must be placed on a parent element of `cc-exp-month` and `cc-exp-year`. Because `ccExp` is not an input and adds a validation property directly to the form, you cannot access its validity as `myForm.ccExp.$valid`. Instead use `myForm.$error.ccExp` to determine whether to show a validation error.
 
-<hr>
+----------------------------------------------------------------------
 
 ## Integration
 
@@ -140,6 +145,8 @@ If you're not fully familiar with form validation in Angular, these may be helpf
 angular-credit-cards sets validity keys that match the directive names (`ccNumber`, `ccCvc`, `ccExp`, `ccExpMonth`, `ccExpYear`). You can use these keys or the form css classes in order to display error messages. If input is unparseable (letters, empty string), Angular will set a `parse` key before validation is reached.
 
 You can also try a [live demo](http://embed.plnkr.co/uE47aZ/preview) and experiment with various inputs and see how they're validated.
+
+----------------------------------------------------------------------
 
 ## License
 
